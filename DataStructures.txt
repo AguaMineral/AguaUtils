@@ -1,1 +1,1 @@
-./Debug/SimpLinkedList.cpp.o ./Debug/main.cpp.o
+./Debug/main.cpp.o ./Debug/SimpLinkedList.cpp.o

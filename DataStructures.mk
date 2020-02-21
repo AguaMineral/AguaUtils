@@ -5,8 +5,8 @@
 ## Debug
 ProjectName            :=DataStructures
 ConfigurationName      :=Debug
-WorkspacePath          :=/home/hezes/dev/AqUtils
-ProjectPath            :=/home/hezes/dev/AqUtils
+WorkspacePath          :=/home/hezes/dev/AguaUtils
+ProjectPath            :=/home/hezes/dev/AguaUtils
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
@@ -60,7 +60,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/SimpLinkedList.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/SimpLinkedList.cpp$(ObjectSuffix) 
 
 
 
@@ -91,21 +91,21 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/SimpLinkedList.cpp$(ObjectSuffix): SimpLinkedList.cpp $(IntermediateDirectory)/SimpLinkedList.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/hezes/dev/AqUtils/SimpLinkedList.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/SimpLinkedList.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/SimpLinkedList.cpp$(DependSuffix): SimpLinkedList.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/SimpLinkedList.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/SimpLinkedList.cpp$(DependSuffix) -MM SimpLinkedList.cpp
-
-$(IntermediateDirectory)/SimpLinkedList.cpp$(PreprocessSuffix): SimpLinkedList.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/SimpLinkedList.cpp$(PreprocessSuffix) SimpLinkedList.cpp
-
 $(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp $(IntermediateDirectory)/main.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/hezes/dev/AqUtils/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/hezes/dev/AguaUtils/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/main.cpp$(DependSuffix) -MM main.cpp
 
 $(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) main.cpp
+
+$(IntermediateDirectory)/SimpLinkedList.cpp$(ObjectSuffix): SimpLinkedList.cpp $(IntermediateDirectory)/SimpLinkedList.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/hezes/dev/AguaUtils/SimpLinkedList.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/SimpLinkedList.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/SimpLinkedList.cpp$(DependSuffix): SimpLinkedList.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/SimpLinkedList.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/SimpLinkedList.cpp$(DependSuffix) -MM SimpLinkedList.cpp
+
+$(IntermediateDirectory)/SimpLinkedList.cpp$(PreprocessSuffix): SimpLinkedList.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/SimpLinkedList.cpp$(PreprocessSuffix) SimpLinkedList.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
