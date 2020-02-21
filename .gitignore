@@ -39,3 +39,4 @@
 *.depend
 bin/
 obj/
+.codelite/
