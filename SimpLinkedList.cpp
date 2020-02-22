@@ -59,7 +59,7 @@ void LinkedList::insertFirst(int newItem)
     }
 }
 
-void LinkedList::del()
+void LinkedList::delFirst()
 {
 	Node *tmp = nullptr;
 	
@@ -170,20 +170,27 @@ void LinkedList::deleteItem(int key)
 
 }
 
-void LinkedList::reverseList()
-{/*
-	Node* tmp = nullptr;
-	Node*tmpAnt = nullptr;
+void LinkedList::reverse()
+{
+	Node *next_   = nullptr;
+	Node *current = nullptr;
+	Node *prev_ = nullptr;
 	
-	tmp = head;
+	current = head;
 	
-	while ( tmp->next != NULL )
+	while (current != NULL)
 	{
-		tmpAnt = tmp;
-		tmp = tmp->next;
+		//saves next node
+		next_ = current->next;
+		//points to previous node
+		current->next = prev_;
+		//saves previous node
+		prev_ = current;
+		//Update current node
+		current = next_;
 	}
-	
-	tmp->next = */
+	//Update head to last previous node wich is the las correct current
+	head = prev_;
 }
 
 int LinkedList::size()
@@ -205,4 +212,10 @@ int LinkedList::size()
 	}
 	
 	return count;
+}
+
+void LinkedList::deleteList()
+{
+	head = NULL;
+	tail = NULL;
 }

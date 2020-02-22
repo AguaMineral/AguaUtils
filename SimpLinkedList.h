@@ -43,7 +43,12 @@ public:
     /*
     Deletes an element at the begining of the list
     */
-    void del();
+    void delFirst();
+	
+	/*
+	 * Deletes the entire list
+	 */
+	void deleteList();
 	
     /*
     Displays the complete list in the console
@@ -63,7 +68,7 @@ public:
 	/*
 	 * Reverse the list
 	 */
-	void reverseList();
+	void reverse();
 	
 	/*
 	 * Returns the size of the list

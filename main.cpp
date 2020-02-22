@@ -25,24 +25,18 @@ At 21-feb-2020 there is:
 int main()
 {  
     LinkedList lista;
-	lista.del();
-    lista.insertFirst(2);
+	lista.insertFirst(5);
+	lista.insertFirst(4);
+	lista.insertFirst(3);
+	lista.insertFirst(2);
 	lista.insertFirst(1);
-	lista.insertFirst(0);
-	lista.insertLast(3);
-	lista.insertLast(4);
-	lista.insertLast(5);
+	lista.delFirst();
 	lista.printList();
-	std::cout << "size: " <<lista.size() << std::endl;
-	lista.del();
+	lista.reverse();
 	std::cout << "-----------------" << std::endl;
 	lista.printList();
+	lista.deleteList();
 	std::cout << "-----------------" << std::endl;
-	std::cout << lista.searchItem(4) << std::endl;
-	std::cout << "-----------------" << std::endl;
-	std::cout << "size: " <<lista.size() << std::endl;
-	lista.deleteItem(2);
 	lista.printList();
-	std::cout << "size: " <<lista.size() << std::endl;
 
 }
