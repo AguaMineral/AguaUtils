@@ -74,4 +74,9 @@ public:
 	 * Returns the size of the list
 	 */
 	int size();
+	
+	/*
+	 * Returns true if it is empty
+	 */
+	bool isEmpty();
 };

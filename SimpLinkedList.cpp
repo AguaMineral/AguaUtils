@@ -219,3 +219,11 @@ void LinkedList::deleteList()
 	head = NULL;
 	tail = NULL;
 }
+
+bool LinkedList::isEmpty()
+{
+	if (head == NULL)
+		return true;
+	else
+		return false;
+}
