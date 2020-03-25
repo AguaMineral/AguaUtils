@@ -17,7 +17,7 @@ At 21-feb-2020 there is:
  * Simple Linked List
 
 */
-
+#include <string>
 #include <iostream>
 #include "SimpLinkedList.h"
 #include "DoublyLinkedList.h"
@@ -25,7 +25,6 @@ At 21-feb-2020 there is:
 //Main for testing 
 int main()
 {  
-	//Data structures test
-	
+	// TEST CODE
 	return 0;
 }
