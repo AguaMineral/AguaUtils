@@ -13,46 +13,69 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+template<typename T>
 struct DbNode
 {
-	int _item;
-	DbNode *_prev;
-	DbNode *_next;
+	T _item;
+	DbNode<T> *_prev;
+	DbNode<T> *_next;
 };
 
+template<class T>
 class DoublyLinkedList
 {
 private:
 
-	DbNode *_head;
+	DbNode<T> *_head;
 public:
 
 	DoublyLinkedList();
 	
-	void insertFirst(int item);
-	void insertLast(int item);
-	void insertAfter(int key, int item);
+	/*
+    Inserts an element at the begining of the list
+    */
+	void insertFirst(T item);
+	
+	/*
+    Inserts an element at the end of the list
+    */
+	void insertLast(T item);
+	void insertAfter(int key, T item);
 	void removeFirst();
 	void removeLast();
+	/*
+	 * Removes an element in a given position sended as int >= 0
+	 */
 	void removeElement(int key);
 	void deleteList();
 	void printForw();
 	void printBackw();
+	/*
+	 * Returns the size of the list in int
+	 */
 	int  size();
 	void reverse();
-	int  searchItem(int key);
+	/*
+	 * Searchs an item in a given position sended as int >= 0
+	 */
+	T  searchItem(int key);
+	/*
+	 * Returns true if the list is empty, false if is not
+	 */
 	bool isEmpty();
 
 };
 
-DoublyLinkedList::DoublyLinkedList()
+template<class T>
+DoublyLinkedList<T>::DoublyLinkedList()
 {
 	_head = NULL;
 }
 
-void DoublyLinkedList::insertFirst(int item)
+template<class T>
+void DoublyLinkedList<T>::insertFirst(T item)
 {
-	DbNode *tmp = new DbNode;
+	DbNode<T> *tmp = new DbNode<T>;
 	tmp->_item = item;
 	tmp->_prev = NULL;
 	tmp->_next = NULL;
@@ -69,18 +92,20 @@ void DoublyLinkedList::insertFirst(int item)
 	}
 }
 
-void DoublyLinkedList::removeFirst()
+template<class T>
+void DoublyLinkedList<T>::removeFirst()
 {
-	DbNode *tmp = nullptr;
+	DbNode<T> *tmp = nullptr;
 	tmp = _head->_next;
 	tmp->_prev = NULL;
 	_head = tmp;
 }
 
-void DoublyLinkedList::removeLast()
+template<class T>
+void DoublyLinkedList<T>::removeLast()
 {
-	DbNode *previous = nullptr;
-	DbNode *current = nullptr;
+	DbNode<T> *previous = nullptr;
+	DbNode<T> *current = nullptr;
 	current = _head;
 	
 	if(_head == NULL)
@@ -98,10 +123,11 @@ void DoublyLinkedList::removeLast()
 	}
 }
 
-void DoublyLinkedList::insertLast(int item)
+template<class T>
+void DoublyLinkedList<T>::insertLast(T item)
 {
-	DbNode *tmp = new DbNode;
-	DbNode *current = nullptr;
+	DbNode<T> *tmp = new DbNode<T>;
+	DbNode<T> *current = nullptr;
 	current = _head;
 	tmp->_item = item;
 	tmp->_next = NULL;
@@ -123,11 +149,12 @@ void DoublyLinkedList::insertLast(int item)
 	}
 }
 
-void DoublyLinkedList::insertAfter(int key, int item)
+template<class T>
+void DoublyLinkedList<T>::insertAfter(int key, T item)
 {
-	DbNode *tmp = new DbNode;
-	DbNode *current = nullptr;
-	DbNode *previous = nullptr;
+	DbNode<T> *tmp = new DbNode<T>;
+	DbNode<T> *current = nullptr;
+	DbNode<T> *previous = nullptr;
 	tmp->_item = item;
 	tmp->_next = NULL;
 	tmp->_prev = NULL;
@@ -169,7 +196,9 @@ void DoublyLinkedList::insertAfter(int key, int item)
 		tmp->_next = current;
 	}
 }
-void DoublyLinkedList::deleteList()
+
+template<class T>
+void DoublyLinkedList<T>::deleteList()
 {
 	if (_head == NULL)
 	{
@@ -181,11 +210,12 @@ void DoublyLinkedList::deleteList()
 	}
 }
 
-void DoublyLinkedList::removeElement(int key)
+template<class T>
+void DoublyLinkedList<T>::removeElement(int key)
 {
-	DbNode *current = nullptr;
-	DbNode *next = nullptr;
-	DbNode *previous = nullptr;
+	DbNode<T> *current = nullptr;
+	DbNode<T> *next = nullptr;
+	DbNode<T> *previous = nullptr;
 	int cont = 1;
 	
 	if (_head == NULL)
@@ -227,9 +257,10 @@ void DoublyLinkedList::removeElement(int key)
 	}
 }
 
-void DoublyLinkedList::printForw()
+template<class T>
+void DoublyLinkedList<T>::printForw()
 {
-	DbNode *tmp = nullptr;
+	DbNode<T> *tmp = nullptr;
 	tmp = _head;
 	
 	if (_head == NULL)
@@ -249,9 +280,10 @@ void DoublyLinkedList::printForw()
 	}
 }
 
-void DoublyLinkedList::printBackw()
+template<class T>
+void DoublyLinkedList<T>::printBackw()
 {
-	DbNode *tmp = nullptr;
+	DbNode<T> *tmp = nullptr;
 	tmp = _head;
 	
 	if (_head == NULL)
@@ -276,7 +308,8 @@ void DoublyLinkedList::printBackw()
 	}
 }
 
-bool DoublyLinkedList::isEmpty()
+template<class T>
+bool DoublyLinkedList<T>::isEmpty()
 {
 	if(_head == NULL)
 		return true;
@@ -284,16 +317,17 @@ bool DoublyLinkedList::isEmpty()
 		return false;
 }
 
-int DoublyLinkedList::size()
+template<class T>
+int DoublyLinkedList<T>::size()
 {
-	DbNode *current = nullptr;
+	DbNode<T> *current = nullptr;
 	int count = 1;
 	current = _head;
 	
 	if(_head == NULL)
 	{
 		std::cout << "ERROR: List is empty" << std::endl;
-		return -1;
+		return count;
 	}
 	else
 	{
@@ -306,11 +340,12 @@ int DoublyLinkedList::size()
 	}
 }
 
-void DoublyLinkedList::reverse()
+template<class T>
+void DoublyLinkedList<T>::reverse()
 {
-	DbNode *current  = nullptr;
-	DbNode *previous = nullptr;
-	DbNode *next_ 	 = nullptr;
+	DbNode<T> *current  = nullptr;
+	DbNode<T> *previous = nullptr;
+	DbNode<T> *next_ 	 = nullptr;
 	
 	current = _head;
 	
@@ -337,25 +372,26 @@ void DoublyLinkedList::reverse()
 	}
 }
 
-int DoublyLinkedList::searchItem(int key)
+template<class T>
+T DoublyLinkedList<T>::searchItem(int key)
 {
-	DbNode *current = nullptr;
+	DbNode<T> *current = nullptr;
 	current = _head;
 	int count = 1;
 	if(current == NULL)
 	{
 		std::cout << "ERROR: List is empty" << std::endl;
-		return -1;
+		return current->_item;
 	}
 	else if(key < 1)
 	{
 		std::cout << "ERROR: That position doenst exist in the list. List positioning begins in 1" << std::endl;
-		return -1;
+		return current->_item;
 	}
 	else if(key < count)
 	{
 		std::cout << "ERROR: The list is shorter" << std::endl;
-		return -1;
+		return current->_item;
 	}
 	else if(key == 1)
 	{
